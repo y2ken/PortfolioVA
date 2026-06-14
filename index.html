@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenneth James G. Yamid — E-Commerce Virtual Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0c;
+  --bg2:#121212;
+  --bg3:#1c1c1c;
+  --bg4:#252525;
+  --border:#2c2c2c;
+  --border2:#383838;
+  --text:#eeebe4;
+  --text2:#9c9890;
+  --text3:#5c5850;
+  --accent:#b87c2a;
+  --accent2:#d4983c;
+  --green:#2a7c5a;
+  --green2:#3aaf7e;
+  --display:'Bebas Neue',sans-serif;
+  --cond:'Barlow Condensed',sans-serif;
+  --body:'Barlow',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 5rem;background:rgba(12,12,12,0.97);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:var(--display);font-size:1.4rem;letter-spacing:.08em;color:var(--accent)}
+.nav-logo-sub{font-family:var(--cond);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--text3);margin-top:.1rem}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center}
+.nav-links a{font-family:var(--cond);font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{padding:.55rem 1.4rem;background:var(--accent);color:#0c0c0c;font-family:var(--cond);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--accent2);color:#0c0c0c}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr;align-items:center;padding:7rem 5rem 4rem;gap:4rem;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:60px 60px;opacity:.18;z-index:0}
+.hero-bg-glow{position:absolute;top:20%;left:0;width:500px;height:500px;background:radial-gradient(circle,rgba(184,124,42,.08) 0%,transparent 70%);z-index:0;pointer-events:none}
+.hero-left{position:relative;z-index:1}
+.hero-available{display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid var(--green);margin-bottom:1.75rem}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:var(--green2);box-shadow:0 0 8px var(--green2);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.avail-text{font-family:var(--cond);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green2)}
+h1.hero-name{font-family:var(--display);font-size:clamp(3.5rem,6vw,5.5rem);line-height:.92;color:var(--text);letter-spacing:.04em;margin-bottom:.6rem}
+h1.hero-name span{color:var(--accent)}
+.hero-title{font-family:var(--cond);font-size:clamp(1rem,2vw,1.3rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text2);margin-bottom:1.75rem;padding-left:2px}
+.hero-title em{color:var(--accent);font-style:normal}
+.hero-desc{font-size:1rem;font-weight:300;color:var(--text2);line-height:1.8;max-width:460px;margin-bottom:2.5rem}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-solid{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:var(--accent);color:#0c0c0c;font-family:var(--cond);font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.btn-solid:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-outline{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 2rem;background:transparent;color:var(--text);font-family:var(--cond);font-size:.8rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border2);cursor:pointer;transition:all .2s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.hero-quick-stats{display:flex;gap:2.5rem}
+.hqs-item{text-align:left}
+.hqs-num{font-family:var(--display);font-size:2rem;color:var(--accent);line-height:1}
+.hqs-label{font-family:var(--cond);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-top:.15rem}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:1rem}
+.hero-card{padding:1.5rem;background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--accent)}
+.hero-card h4{font-family:var(--cond);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.hero-card p{font-size:.875rem;color:var(--text2);font-weight:300;line-height:1.6}
+.tool-chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+.chip{font-family:var(--cond);font-size:.68rem;letter-spacing:.08em;padding:.2rem .55rem;background:var(--bg4);border:1px solid var(--border2);color:var(--text3)}
+
+/* SECTION COMMONS */
+section{padding:6rem 5rem}
+.s-label{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.s-num{font-family:var(--cond);font-size:.7rem;font-weight:700;letter-spacing:.18em;color:var(--accent)}
+.s-rule-sm{width:1.5rem;height:1px;background:var(--accent)}
+.s-tag{font-family:var(--cond);font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--text3)}
+h2.s-title{font-family:var(--display);font-size:clamp(2.2rem,3.5vw,3.2rem);color:var(--text);letter-spacing:.05em;line-height:1;margin-bottom:.4rem}
+h2.s-title span{color:var(--accent)}
+.s-divider{width:3.5rem;height:2px;background:var(--accent);margin:1.5rem 0 3rem}
+
+/* SERVICES */
+#services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.svc-card{padding:2rem 1.75rem;background:var(--bg2);transition:background .25s,border-top .25s;border-top:2px solid transparent}
+.svc-card:hover{background:var(--bg3);border-top-color:var(--accent)}
+.svc-icon{font-size:1.5rem;margin-bottom:1.25rem;display:block}
+.svc-card h3{font-family:var(--cond);font-size:.95rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:.6rem}
+.svc-card p{font-size:.85rem;font-weight:300;color:var(--text2);line-height:1.65;margin-bottom:1.25rem}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.svc-list li{font-size:.82rem;color:var(--text3);display:flex;align-items:flex-start;gap:.55rem;line-height:1.4}
+.svc-list li::before{content:'→';color:var(--accent);font-size:.75rem;margin-top:.05rem;flex-shrink:0}
+
+/* EXPERIENCE */
+#experience{background:var(--bg)}
+.exp-timeline{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:3rem;position:relative;padding-bottom:3rem}
+.exp-item:last-child{padding-bottom:0}
+.exp-item::after{content:'';position:absolute;left:199px;top:12px;bottom:0;width:1px;background:var(--border);z-index:0}
+.exp-item:last-child::after{display:none}
+.exp-left{text-align:right;padding-top:.1rem}
+.exp-period{font-family:var(--display);font-size:1.1rem;color:var(--accent);letter-spacing:.05em;line-height:1}
+.exp-duration{font-family:var(--cond);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);margin-top:.3rem}
+.exp-dot{width:11px;height:11px;border-radius:50%;background:var(--accent);border:2px solid var(--bg);position:absolute;left:194px;top:8px;z-index:1}
+.exp-right{padding-left:2.5rem}
+.exp-company{font-family:var(--cond);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem}
+.exp-role{font-family:var(--display);font-size:1.5rem;color:var(--text);letter-spacing:.04em;margin-bottom:.25rem;line-height:1.1}
+.exp-type{font-family:var(--cond);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1rem;padding:.2rem .6rem;border:1px solid var(--border2);display:inline-block}
+.exp-desc{font-size:.9rem;font-weight:300;color:var(--text2);line-height:1.75;margin-bottom:1.25rem}
+.exp-achievements{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem}
+.exp-achievements li{font-size:.875rem;color:var(--text2);display:flex;align-items:flex-start;gap:.75rem;line-height:1.5}
+.exp-achievements li::before{content:'▸';color:var(--accent);flex-shrink:0;margin-top:.05rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.exp-tag{font-family:var(--cond);font-size:.68rem;letter-spacing:.08em;padding:.2rem .55rem;border:1px solid var(--border);color:var(--text3)}
+
+/* SKILLS */
+#skills{background:var(--bg2)}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.skills-col h3{font-family:var(--cond);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.sk-row{margin-bottom:1.25rem}
+.sk-head{display:flex;justify-content:space-between;margin-bottom:.4rem}
+.sk-name{font-size:.875rem;color:var(--text2);font-weight:400}
+.sk-pct{font-family:var(--cond);font-size:.72rem;color:var(--accent);font-weight:600}
+.sk-bar{height:3px;background:var(--border2);position:relative}
+.sk-fill{height:100%;background:linear-gradient(to right,var(--accent),var(--accent2));position:relative;transition:width 1s ease}
+.sk-fill::after{content:'';position:absolute;right:-1px;top:-2.5px;width:7px;height:7px;border-radius:50%;background:var(--accent2)}
+.tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:1.5rem}
+.tool-box{padding:1.25rem;background:var(--bg2);transition:background .2s}
+.tool-box:hover{background:var(--bg3)}
+.tool-cat{font-family:var(--cond);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem}
+.tool-names{font-size:.82rem;color:var(--text2);font-weight:300;line-height:1.6}
+.soft-skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:1.5rem}
+.ss-item{padding:.75rem 1rem;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;gap:.6rem}
+.ss-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0}
+.ss-text{font-size:.82rem;color:var(--text2);font-weight:300}
+
+/* TESTIMONIALS / WHY HIRE */
+#why{background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.why-card{padding:2rem;background:var(--bg);transition:background .2s}
+.why-card:hover{background:var(--bg3)}
+.why-num{font-family:var(--display);font-size:2.5rem;color:var(--accent);opacity:.25;line-height:1;margin-bottom:.75rem;letter-spacing:.05em}
+.why-card h3{font-family:var(--cond);font-size:.9rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:.6rem}
+.why-card p{font-size:.875rem;font-weight:300;color:var(--text2);line-height:1.7}
+
+/* CONTACT */
+#contact{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-intro{font-size:1rem;font-weight:300;color:var(--text2);line-height:1.8;margin-bottom:2.5rem}
+.c-item{display:flex;align-items:flex-start;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--border)}
+.c-item:first-of-type{border-top:1px solid var(--border)}
+.c-icon{width:40px;height:40px;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.9rem;color:var(--accent);flex-shrink:0}
+.c-lbl{font-family:var(--cond);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+.c-val{font-size:.9rem;color:var(--text2);margin-top:.1rem}
+.form-grp{display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.2rem}
+.form-grp label{font-family:var(--cond);font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+.form-grp input,.form-grp textarea,.form-grp select{background:var(--bg3);border:1px solid var(--border);padding:.8rem 1rem;color:var(--text);font-family:var(--body);font-size:.9rem;outline:none;transition:border-color .2s;width:100%;appearance:none}
+.form-grp input:focus,.form-grp textarea:focus,.form-grp select:focus{border-color:var(--accent)}
+.form-grp textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* FOOTER */
+footer{padding:1.5rem 5rem;display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-top:1px solid var(--border)}
+.footer-copy{font-family:var(--cond);font-size:.72rem;letter-spacing:.1em;color:var(--text3)}
+.footer-right{display:flex;align-items:center;gap:2rem}
+.footer-link{font-family:var(--cond);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);text-decoration:none;transition:color .2s}
+.footer-link:hover{color:var(--accent)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+.reveal.on{opacity:1;transform:none}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+
+@media(max-width:980px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1.25rem}
+  .nav-links li:nth-child(-n+2){display:none}
+  #hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2.5rem}
+  .hero-right{display:none}
+  section{padding:4rem 1.5rem}
+  .services-grid,.why-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr;gap:3rem}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .exp-item{grid-template-columns:1fr;gap:.5rem}
+  .exp-item::after{display:none}
+  .exp-dot{display:none}
+  .exp-left{text-align:left}
+  .exp-right{padding-left:0}
+  .form-row{grid-template-columns:1fr}
+  footer{padding:1.25rem 1.5rem;flex-direction:column;gap:.75rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo" style="text-decoration:none">
+    <span class="nav-logo-name">KJY</span>
+    <span class="nav-logo-sub">E-Commerce VA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-available">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Available</span>
+    </div>
+    <h1 class="hero-name">KENNETH<br>JAMES<br><span>YAMID</span></h1>
+    <p class="hero-title">E-Commerce <em>Virtual Assistant</em></p>
+    <p class="hero-desc">
+      Results-driven E-Commerce VA with <strong>2+ years of call center experience</strong> handling high-volume e-commerce accounts. Specialized in customer support, order management, product listing, and backend operations — delivering smooth, efficient store management for online sellers.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-solid">Hire Me Now →</a>
+      <a href="#services" class="btn-outline">View Services</a>
+    </div>
+    <div class="hero-quick-stats">
+      <div class="hqs-item">
+        <div class="hqs-num">2+</div>
+        <div class="hqs-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <h4>Core Specialization</h4>
+      <p>E-Commerce customer support, order lifecycle management, product listing & optimization, and back-end store operations across major platforms.</p>
+      <div class="tool-chips">
+        <span class="chip">Shopify</span>
+        <span class="chip">E-bay</span>
+        <span class="chip">Lazada</span>
+        <span class="chip">Shopee</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>Background Edge</h4>
+      <p>Combines 2 years of call center e-commerce support with an IT background — giving a technical advantage in store systems, data handling, and process automation.</p>
+      <div class="tool-chips">
+        <span class="chip">Data Entry</span>
+        <span class="chip">Google Sheets</span>
+        <span class="chip">Process Docs</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h4>Availability</h4>
+      <p>Full-time or part-time. Flexible on time zones. Davao City, Philippines (PH Time / GMT+8). Open to long-term retainer contracts.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="s-label"><span class="s-num">01</span><div class="s-rule-sm"></div><span class="s-tag">What I Offer</span></div>
+  <h2 class="s-title">VA <span>SERVICES</span></h2>
+  <div class="s-divider"></div>
+
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <span class="svc-icon"></span>
+      <h3>Customer Support</h3>
+      <p>Professional, empathetic customer service across email, chat, and ticketing platforms — resolving issues fast and keeping buyers satisfied.</p>
+      <ul class="svc-list">
+        <li>Order inquiry handling & status updates</li>
+        <li>Refund, return & replacement processing</li>
+        <li>Dispute resolution & escalation management</li>
+        <li>Live chat & email response management</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd1">
+      <span class="svc-icon"></span>
+      <h3>Order Management</h3>
+      <p>End-to-end order processing and fulfillment coordination — ensuring every order moves smoothly from purchase to delivery.</p>
+      <ul class="svc-list">
+        <li>Order processing & fulfillment tracking</li>
+        <li>Shipping coordination with logistics partners</li>
+        <li>Inventory monitoring & stock level alerts</li>
+        <li>Cancellation & modification handling</li>
+        <li>Delayed & lost shipment follow-ups</li>
+        <li>Fulfillment reporting & issue logging</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd2">
+      <span class="svc-icon"></span>
+      <h3>Product Listing & Admin</h3>
+      <p>Accurate, optimized product listings and backend store administration to keep your storefront running clean and professional.</p>
+      <ul class="svc-list">
+        <li>Product listing creation & optimization</li>
+        <li>Title, description & keyword writing</li>
+        <li>Price monitoring & competitor research</li>
+        <li>Photo uploading & variant setup</li>
+        <li>Category mapping & attribute tagging</li>
+        <li>Store back-end maintenance</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-icon"></span>
+      <h3>Data & Reporting</h3>
+      <p>Organized data tracking, reporting, and documentation to give you clear visibility into your store's operations and performance.</p>
+      <ul class="svc-list">
+        <li>Daily/weekly sales & order reports</li>
+        <li>Customer interaction logging</li>
+        <li>Spreadsheet management & data entry</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd1">
+      <span class="svc-icon"></span>
+      <h3>Email & Admin Support</h3>
+      <p>Reliable inbox management and general administrative support to keep your business organized and communication timely.</p>
+      <ul class="svc-list">
+        <li>Email inbox management & filtering</li>
+        <li>Template drafting & response scripts</li>
+        <li>Calendar & appointment scheduling</li>
+        <li>File organization & documentation</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal rd2">
+      <span class="svc-icon"></span>
+      <h3>Platform Operations</h3>
+      <p>Hands-on support across major e-commerce and marketplace platforms — keeping your accounts healthy and compliant.</p>
+      <ul class="svc-list">
+        <li>Shopify / WooCommerce store support</li>
+        <li>Amazon / eBay seller account management</li>
+        <li>Lazada / Shopee store operations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="s-label"><span class="s-num">02</span><div class="s-rule-sm"></div><span class="s-tag">Work History</span></div>
+  <h2 class="s-title">WORK <span>EXPERIENCE</span></h2>
+  <div class="s-divider"></div>
+
+  <div class="exp-timeline">
+
+    <!-- Job 1 -->
+    <div class="exp-item reveal">
+      <div class="exp-left">
+        <div class="exp-period">2023<br>–<br>2025</div>
+        <div class="exp-duration">2 Years</div>
+      </div>
+      <div class="exp-dot"></div>
+      <div class="exp-right">
+        <div class="exp-company">BPO / Call Center · E-Commerce Account</div>
+        <div class="exp-role">E-Commerce Customer Service Representative</div>
+        <span class="exp-type">Full-Time · On-site</span>
+        <p class="exp-desc">
+          Handled a high-volume e-commerce support account, serving as the primary point of contact for customers across the full order lifecycle — from pre-purchase inquiries to post-delivery resolution. Consistently met and exceeded performance KPIs in a fast-paced call center environment.
+        </p>
+        <ul class="exp-achievements">
+          <li>Managed 400–600 customer interactions per month via email, live chat, and phone across an e-commerce platform account</li>
+          <li>Achieved an average Customer Satisfaction (CSAT) score of 98%, consistently ranked among top agents in the team</li>
+          <li>Processed and resolved order disputes, refunds, returns, and replacements in compliance with platform policies</li>
+          <li>Maintained First Contact Resolution (FCR) rate above 85%, reducing repeat contacts and escalations</li>
+          <li>Coordinated with fulfillment and logistics teams to resolve delayed, lost, and damaged shipment cases</li>
+          <li>Handled escalated complaints and seller-buyer disputes with empathy and policy-accurate resolution</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Customer Support</span>
+          <span class="exp-tag">Order Management</span>
+          <span class="exp-tag">Dispute Resolution</span>
+          <span class="exp-tag">Refunds & Returns</span>
+          <span class="exp-tag">Live Chat</span>
+          <span class="exp-tag">Email Support</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="s-label"><span class="s-num">03</span><div class="s-rule-sm"></div><span class="s-tag">Capabilities</span></div>
+  <h2 class="s-title">SKILLS &amp; <span>TOOLS</span></h2>
+  <div class="s-divider"></div>
+
+  <div class="skills-layout">
+    <div>
+      <div class="skills-col">
+        <h3>Core VA Skills</h3>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Customer Support & Communication</span><span class="sk-pct">97%</span></div><div class="sk-bar"><div class="sk-fill" style="width:97%"></div></div></div>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Order Management & Fulfillment</span><span class="sk-pct">95%</span></div><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div></div>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Dispute & Refund Resolution</span><span class="sk-pct">95%</span></div><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div></div>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Product Listing & Optimization</span><span class="sk-pct">88%</span></div><div class="sk-bar"><div class="sk-fill" style="width:88%"></div></div></div>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Data Entry & Reporting</span><span class="sk-pct">90%</span></div><div class="sk-bar"><div class="sk-fill" style="width:90%"></div></div></div>
+        <div class="sk-row"><div class="sk-head"><span class="sk-name">Email & Inbox Management</span><span class="sk-pct">92%</span></div><div class="sk-bar"><div class="sk-fill" style="width:92%"></div></div></div>
+      </div>
+
+      <div class="skills-col" style="margin-top:2.5rem">
+        <h3>Soft Skills</h3>
+        <div class="soft-skills-grid">
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Attention to Detail</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Time Management</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Problem Solving</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Written Communication</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Empathy & Patience</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Self-Management</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Fast Learner</span></div>
+          <div class="ss-item"><div class="ss-dot"></div><span class="ss-text">Team Collaboration</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="skills-col">
+        <h3>Tools & Platforms</h3>
+        <div class="tools-grid">
+          <div class="tool-box"><div class="tool-cat">E-Commerce Platforms</div><div class="tool-names">Shopify · Amazon · Lazada · Shopee · eBay</div></div>
+          <div class="tool-box"><div class="tool-cat">Communication</div><div class="tool-names">Gmail · Zoom · Google Meet · MS Teams</div></div>
+          <div class="tool-box"><div class="tool-cat">Productivity</div><div class="tool-names">Google Workspace · MS Office · Trello </div></div>
+          <div class="tool-box"><div class="tool-cat">Data & Reporting</div><div class="tool-names">Google Sheets · Excel </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HIRE ME -->
+<section id="why">
+  <div class="s-label"><span class="s-num">04</span><div class="s-rule-sm"></div><span class="s-tag">Value Proposition</span></div>
+  <h2 class="s-title">WHY <span>HIRE ME</span></h2>
+  <div class="s-divider"></div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01</div>
+      <h3>Battle-Tested in E-Commerce</h3>
+      <p>Two years inside a call center running a live e-commerce account means I've handled thousands of real customer cases — not simulations. I know the pressure, the edge cases, and how to stay composed through high-volume periods.</p>
+    </div>
+    <div class="why-card reveal rd1">
+      <div class="why-num">02</div>
+      <h3>Tech-Savvy Advantage</h3>
+      <p>With an IT background, I pick up new tools fast, understand system workflows, and can handle data management with precision. No handholding needed for software onboarding — I adapt quickly and work independently.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-num">04</div>
+      <h3>Customer-First Mindset</h3>
+      <p>Every interaction I handle reflects on your brand. I treat every buyer's concern as a priority — resolving issues with empathy, accuracy, and professionalism that turns frustrated customers into loyal ones.</p>
+    </div>
+    <div class="why-card reveal rd1">
+      <div class="why-num">05</div>
+      <h3>Zero Micromanagement</h3>
+      <p>I'm self-directed, deadline-aware, and proactive. I don't wait to be told what to do next — I identify what needs doing, document it, and execute. Your time is for strategy, not supervising me.</p>
+    </div>
+    <div class="why-card reveal rd2">
+      <div class="why-num">06</div>
+      <h3>Long-Term Partnership</h3>
+      <p>I'm not looking for a one-off gig. I'm looking to grow with a client, understand their business deeply, and become a reliable part of their team. The longer we work together, the better I serve your store.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="s-label"><span class="s-num">05</span><div class="s-rule-sm"></div><span class="s-tag">Get in Touch</span></div>
+  <h2 class="s-title">LET'S <span>WORK</span></h2>
+  <div class="s-divider"></div>
+
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="contact-intro">Ready to delegate your e-commerce operations to someone who's done it professionally for 2+ years? Let's talk about how I can support your store and free up your time.</p>
+      <div class="c-item">
+        <div class="c-icon"></div>
+        <div><div class="c-lbl">Email</div><div class="c-val">yamidkenneth9@gmail.com</div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon"></div>
+        <div><div class="c-lbl">WhatsApp</div><div class="c-val">+63 9705394490</div></div>
+      </div>
+      <div class="c-item">
+        <div class="c-icon">🟢</div>
+        <div><div class="c-lbl">Availability</div><div class="c-val">Open to full-time, part-time & retainer contracts</div></div>
+      </div>
+    </div>
+
+    <div class="reveal rd1">
+      <div class="form-row">
+        <div class="form-grp"><label>First Name</label><input type="text" placeholder="Kenneth"></div>
+        <div class="form-grp"><label>Last Name</label><input type="text" placeholder="Yamid"></div>
+      </div>
+      <div class="form-grp"><label>Email Address</label><input type="email" placeholder="you@company.com"></div>
+      <div class="form-grp">
+        <label>Service Needed</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Customer Support Management</option>
+          <option>Order & Fulfillment Management</option>
+          <option>Product Listing & Optimization</option>
+          <option>Data Entry & Reporting</option>
+          <option>Email & Admin Support</option>
+          <option>Full E-Commerce VA Package</option>
+        </select>
+      </div>
+      <div class="form-grp"><label>Message</label><textarea placeholder="Tell me about your store and what you need help with..."></textarea></div>
+      <button class="btn-solid" onclick="alert('Thank you! I will get back to you within 24 hours.')">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-copy">© 2025 Kenneth James G. Yamid · E-Commerce Virtual Assistant · Davao City, Philippines</p>
+  <div class="footer-right">
+    <a href="#services" class="footer-link">Services</a>
+    <a href="#experience" class="footer-link">Experience</a>
+    <a href="#contact" class="footer-link">Contact</a>
+    <a href="#hero" class="footer-link">↑ Top</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
